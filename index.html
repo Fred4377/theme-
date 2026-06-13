@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ThemeStore | Premium CSS Templates</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg: #0f172a;
+            --surface: #1e293b;
+            --primary: #8b5cf6;
+            --secondary: #ec4899;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* Glass Navbar */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            color: var(--primary);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: white;
+        }
+
+        /* Hero */
+        header {
+            padding: 150px 5% 100px;
+            text-align: center;
+            background: radial-gradient(circle at 50% -20%, rgba(139, 92, 246, 0.15) 0%, rgba(15, 23, 42, 0) 70%);
+        }
+
+        .pill {
+            display: inline-block;
+            padding: 8px 20px;
+            background: rgba(139, 92, 246, 0.1);
+            color: var(--primary);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, white, var(--text-muted));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        .btn {
+            padding: 15px 35px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
+        }
+
+        /* Templates Grid */
+        section {
+            padding: 50px 5% 100px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--surface);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(139, 92, 246, 0.3);
+        }
+
+        .card-img {
+            height: 200px;
+            background: #2dd4bf;
+            width: 100%;
+        }
+
+        .img-1 { background: linear-gradient(45deg, #f43f5e, #f97316); }
+        .img-2 { background: linear-gradient(45deg, #8b5cf6, #3b82f6); }
+        .img-3 { background: linear-gradient(45deg, #10b981, #06b6d4); }
+        
+        .card-content {
+            padding: 25px;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .card-desc {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .price {
+            font-weight: 800;
+            color: white;
+        }
+
+        .tag {
+            font-size: 0.8rem;
+            padding: 4px 10px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 4px;
+            color: var(--text-muted);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo"><i class="fas fa-layer-group"></i> ThemeStore</div>
+        <ul>
+            <li><a href="#">Templates</a></li>
+            <li><a href="#">UI Kits</a></li>
+            <li><a href="#">Pricing</a></li>
+            <li><a href="#" style="color: white;">Login</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <div class="pill">New v2.0 Released</div>
+        <h1>Premium UI Templates</h1>
+        <p>Build beautiful, fast, and modern websites in minutes with our collection of premium HTML & CSS templates.</p>
+        <a href="#templates" class="btn btn-primary">Browse Templates</a>
+    </header>
+
+    <section id="templates">
+        <div class="section-header">
+            <h2>Latest Themes</h2>
+            <a href="#" style="color: var(--primary); text-decoration: none; font-weight: 600;">View All ➔</a>
+        </div>
+        
+        <div class="grid">
+            <div class="card">
+                <div class="card-img img-1"></div>
+                <div class="card-content">
+                    <h3 class="card-title">Nexus Dashboard</h3>
+                    <p class="card-desc">A complete admin dashboard template built with CSS Grid and modern components.</p>
+                    <div class="card-footer">
+                        <span class="price">Free</span>
+                        <span class="tag">Admin UI</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img img-2"></div>
+                <div class="card-content">
+                    <h3 class="card-title">Aura Landing Page</h3>
+                    <p class="card-desc">Perfect landing page for SaaS products and modern software companies.</p>
+                    <div class="card-footer">
+                        <span class="price">$19</span>
+                        <span class="tag">Landing</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img img-3"></div>
+                <div class="card-content">
+                    <h3 class="card-title">Lumina E-Commerce</h3>
+                    <p class="card-desc">High-converting e-commerce storefront with cart flows and product galleries.</p>
+                    <div class="card-footer">
+                        <span class="price">$29</span>
+                        <span class="tag">E-Commerce</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 ThemeStore. Built by Fred Otieno.</p>
+    </footer>
+
+</body>
+</html>
