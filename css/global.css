@@ -1,10 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Outfit:wght@300;400;500;600;700&display=swap');
+
 :root {
-    --bg: #0f172a;
-    --surface: #1e293b;
-    --primary: #8b5cf6;
-    --secondary: #ec4899;
-    --text-main: #f8fafc;
-    --text-muted: #94a3b8;
+    --bg: #f5f2eb;
+    --surface: #ffffff;
+    --primary: #c05621;
+    --secondary: #2f855a;
+    --text-main: #2d3748;
+    --text-muted: #718096;
 }
 
 * {
@@ -15,10 +17,15 @@
 }
 
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Outfit', sans-serif;
     background-color: var(--bg);
     color: var(--text-main);
     line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Lora', serif;
+    color: var(--text-main);
 }
 
 /* Glass Navbar */
@@ -30,20 +37,24 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(15, 23, 42, 0.7);
+    background: rgba(245, 242, 235, 0.85);
     backdrop-filter: blur(15px);
     z-index: 1000;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(45, 55, 72, 0.1);
     transition: all 0.3s;
 }
 
 .logo {
     font-size: 1.5rem;
     font-weight: 800;
-    color: white;
+    color: var(--text-main) !important;
     display: flex;
     align-items: center;
     gap: 10px;
+}
+
+.logo a {
+    color: var(--text-main) !important;
 }
 
 .logo i {
@@ -57,7 +68,7 @@ nav ul {
 }
 
 nav a {
-    color: var(--text-muted);
+    color: var(--text-muted) !important;
     text-decoration: none;
     font-weight: 600;
     transition: color 0.3s, transform 0.3s;
@@ -82,7 +93,15 @@ nav a:hover::after, nav a.active::after {
 }
 
 nav a:hover, nav a.active {
-    color: white;
+    color: var(--text-main) !important;
+}
+
+/* Override inline white colors on login links for light navbar */
+nav ul li a[style*="color: white"], nav ul li a[style*="color:white"] {
+    color: var(--text-muted) !important;
+}
+nav ul li a[style*="color: white"]:hover, nav ul li a[style*="color:white"]:hover {
+    color: var(--text-main) !important;
 }
 
 /* Cinematic Hero */
@@ -117,7 +136,7 @@ header {
     top: 0; left: 0; right: 0; bottom: 0;
     z-index: -2;
     overflow: hidden;
-    background: #000;
+    background: #e2dcd0;
 }
 
 .cinematic-bg img {
@@ -146,7 +165,7 @@ header {
 .cinematic-overlay {
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: linear-gradient(45deg, rgba(15,23,42,0.85), rgba(139,92,246,0.25));
+    background: linear-gradient(45deg, rgba(245,242,235,0.92), rgba(192,86,33,0.15));
     z-index: -1;
 }
 
@@ -178,22 +197,23 @@ header {
 .pill {
     display: inline-block;
     padding: 8px 20px;
-    background: rgba(139, 92, 246, 0.15);
-    color: var(--text-main);
-    border: 1px solid rgba(139, 92, 246, 0.4);
+    background: rgba(192, 86, 33, 0.08);
+    color: var(--primary);
+    border: 1px solid rgba(192, 86, 33, 0.25);
     border-radius: 30px;
     font-size: 0.9rem;
     font-weight: 600;
     margin-bottom: 20px;
-    box-shadow: 0 0 15px rgba(139, 92, 246, 0.3);
+    box-shadow: 0 4px 15px rgba(192, 86, 33, 0.08);
     animation: fadeInUp 1s ease-out;
 }
 
 header h1 {
+    font-family: 'Lora', serif;
     font-size: 4.5rem;
     font-weight: 800;
     margin-bottom: 20px;
-    background: linear-gradient(to right, white, var(--text-muted));
+    background: linear-gradient(to right, var(--text-main), #8c320a);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: fadeInUp 1.2s ease-out 0.2s both;
@@ -205,7 +225,7 @@ header p {
     max-width: 700px;
     margin: 0 auto 40px;
     animation: fadeInUp 1.2s ease-out 0.4s both;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    text-shadow: none;
 }
 
 .btn {
@@ -218,16 +238,17 @@ header p {
 }
 
 .btn-primary {
-    background: linear-gradient(to right, var(--primary), var(--secondary));
-    color: white;
-    box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+    background: linear-gradient(to right, var(--primary), #8c320a);
+    color: white !important;
+    box-shadow: 0 4px 15px rgba(192, 86, 33, 0.25);
     border: 1px solid rgba(255,255,255,0.1);
     animation: fadeInUp 1.2s ease-out 0.6s both;
 }
 
 .btn-primary:hover {
     transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 10px 25px rgba(139, 92, 246, 0.5);
+    box-shadow: 0 10px 25px rgba(192, 86, 33, 0.4);
+    color: white !important;
 }
 
 /* Templates Grid */
@@ -243,8 +264,10 @@ section {
 }
 
 .section-header h2 {
+    font-family: 'Lora', serif;
     font-size: 2.5rem;
     font-weight: 800;
+    color: var(--text-main);
 }
 
 .grid {
@@ -257,14 +280,15 @@ section {
     background: var(--surface);
     border-radius: 16px;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(45, 55, 72, 0.1);
+    box-shadow: 0 4px 12px rgba(45, 55, 72, 0.05);
     transition: transform 0.4s, border-color 0.4s, box-shadow 0.4s;
 }
 
 .card:hover {
     transform: translateY(-10px);
-    border-color: rgba(139, 92, 246, 0.5);
-    box-shadow: 0 15px 35px rgba(139, 92, 246, 0.2);
+    border-color: var(--primary);
+    box-shadow: 0 15px 35px rgba(192, 86, 33, 0.12);
 }
 
 .card-img {
@@ -283,9 +307,10 @@ section {
 }
 
 .card-title {
+    font-family: 'Lora', serif;
     font-size: 1.4rem;
     margin-bottom: 10px;
-    color: white;
+    color: var(--text-main);
 }
 
 .card-desc {
@@ -299,43 +324,51 @@ section {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-top: 1px solid rgba(255,255,255,0.05);
+    border-top: 1px solid rgba(45, 55, 72, 0.08);
     padding-top: 20px;
 }
 
 .price {
     font-weight: 800;
-    font-size: 1.1rem;
-    color: var(--secondary);
+    font-size: 1.15rem;
+    color: var(--primary);
 }
 
 .tag {
     font-size: 0.8rem;
     padding: 6px 12px;
-    background: rgba(139, 92, 246, 0.1);
+    background: rgba(47, 133, 90, 0.08);
     border-radius: 20px;
-    color: var(--text-main);
-    border: 1px solid rgba(139, 92, 246, 0.2);
+    color: var(--secondary);
+    border: 1px solid rgba(47, 133, 90, 0.2);
 }
 
 /* Footer */
 footer {
     text-align: center;
     padding: 50px;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 1px solid rgba(45, 55, 72, 0.1);
     color: var(--text-muted);
     background: var(--bg);
 }
 
 /* Typography & Rhythmic Spacing for Subpages */
+#content {
+    background: var(--surface) !important;
+    border: 1px solid rgba(45, 55, 72, 0.1) !important;
+    box-shadow: 0 15px 35px rgba(45, 55, 72, 0.06) !important;
+}
+
 #content h1 {
+    font-family: 'Lora', serif;
     font-size: 2.2rem;
-    color: white;
+    color: var(--text-main);
     margin-bottom: 20px;
-    border-bottom: 1px solid rgba(139, 92, 246, 0.3);
+    border-bottom: 1px solid rgba(192, 86, 33, 0.25);
     padding-bottom: 10px;
 }
 #content h2, #content h3 {
+    font-family: 'Lora', serif;
     color: var(--text-main);
     margin-top: 30px;
     margin-bottom: 15px;
@@ -369,4 +402,168 @@ footer {
 /* Override broken inline styles */
 #content [style*="margin-top: 950px"] {
     margin-top: 40px !important;
+}
+
+/* =========================================
+   LIPA NA M-PESA CHECKOUT MODAL STYLES
+   ========================================= */
+.purchase-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(45, 55, 72, 0.6);
+    backdrop-filter: blur(5px);
+    z-index: 3000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.purchase-modal.show {
+    display: flex;
+    opacity: 1;
+}
+
+.purchase-content {
+    background: var(--surface);
+    color: var(--text-main);
+    border: 1px solid rgba(45, 55, 72, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 15px 35px rgba(45, 55, 72, 0.15);
+    width: 90%;
+    max-width: 450px;
+    padding: 30px;
+    transform: scale(0.9);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    font-family: 'Outfit', sans-serif;
+}
+
+.purchase-modal.show .purchase-content {
+    transform: scale(1);
+}
+
+.purchase-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(45, 55, 72, 0.08);
+    padding-bottom: 12px;
+}
+
+.purchase-header h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.purchase-close {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--text-muted);
+    line-height: 1;
+}
+
+.purchase-close:hover {
+    color: var(--text-main);
+}
+
+.mpesa-logo {
+    height: 32px;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+.purchase-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.purchase-form input {
+    width: 100%;
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px solid rgba(45, 55, 72, 0.15);
+    background: #fbfbf9;
+    color: var(--text-main);
+    margin-bottom: 15px;
+    font-family: inherit;
+}
+
+.purchase-form input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(192, 86, 33, 0.15);
+}
+
+.btn-pay {
+    background: #44b549;
+    color: white !important;
+    font-weight: 700;
+    border: none;
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background-color 0.2s;
+}
+
+.btn-pay:hover {
+    background: #399c3e;
+}
+
+/* STK Pin Prompt Sim */
+.stk-pin-sim {
+    background: #111;
+    color: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    border: 1px solid #333;
+    font-family: monospace;
+}
+
+.stk-pin-sim h4 {
+    color: #44b549;
+    margin-bottom: 12px;
+    font-family: monospace;
+}
+
+.stk-input {
+    letter-spacing: 15px;
+    text-align: center;
+    font-size: 24px;
+    background: #222 !important;
+    border: 1px solid #444 !important;
+    color: #fff !important;
+    max-width: 150px;
+    margin: 10px auto !important;
+    display: block;
+}
+
+/* Developer notice banner */
+.dev-banner {
+    background: #fdf6e2;
+    color: #c05621;
+    border-bottom: 1px solid rgba(192, 86, 33, 0.15);
+    padding: 10px 5%;
+    text-align: center;
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-top: 75px; /* Offset fixed nav */
+}
+
+.dev-banner a {
+    color: #c05621;
+    font-weight: 700;
 }

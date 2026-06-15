@@ -24,7 +24,11 @@
         </ul>
     </nav>
 
-        <header>
+    <div class="dev-banner">
+        <span>👋 Need custom integration help? Contact Fred Otieno (+254782091381) for tailoring these templates.</span>
+    </div>
+
+    <header>
         <div class="cinematic-bg">
             <img src="media/tech1.jpg" alt="Tech Workspace 1">
             <img src="media/tech2.jpg" alt="Tech Workspace 2">
@@ -62,8 +66,8 @@
                     <h3 class="card-title">Aura Landing Page</h3>
                     <p class="card-desc">Perfect landing page for SaaS products and modern software companies.</p>
                     <div class="card-footer">
-                        <span class="price">$19</span>
-                        <span class="tag">Landing</span>
+                        <span class="price">KSh 2,500</span>
+                        <button class="btn-buy-template btn-pay" style="padding: 6px 14px; font-size: 0.85rem; width: auto;" data-name="Aura Landing Page" data-price="2,500">Buy Now</button>
                     </div>
                 </div>
             </div>
@@ -74,20 +78,67 @@
                     <h3 class="card-title">Lumina E-Commerce</h3>
                     <p class="card-desc">High-converting e-commerce storefront with cart flows and product galleries.</p>
                     <div class="card-footer">
-                        <span class="price">$29</span>
-                        <span class="tag">E-Commerce</span>
+                        <span class="price">KSh 3,800</span>
+                        <button class="btn-buy-template btn-pay" style="padding: 6px 14px; font-size: 0.85rem; width: auto;" data-name="Lumina E-Commerce" data-price="3,800">Buy Now</button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Lipa na M-Pesa Checkout Modal -->
+    <div id="purchaseModal" class="purchase-modal">
+        <div class="purchase-content">
+            <div class="purchase-header">
+                <h3>Lipa na M-Pesa Checkout</h3>
+                <button class="purchase-close" onclick="closePurchaseModal()">&times;</button>
+            </div>
+            
+            <div id="purchaseFormContainer">
+                <div style="text-align: center;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/M-PESA_LOGO-01.svg/512px-M-PESA_LOGO-01.svg.png" class="mpesa-logo" alt="M-Pesa Logo" style="height: 40px; margin-bottom: 20px;">
+                </div>
+                <p style="margin-bottom: 15px; font-size: 0.95rem; color: var(--text-muted);">
+                    You are purchasing <strong id="modalTemplateName" style="color: var(--text-main);">Aura Landing Page</strong> for <strong style="color: var(--primary);">KSh <span id="modalTemplatePrice">2,500</span></strong>.
+                </p>
+                <form id="purchaseForm" class="purchase-form">
+                    <label for="mpesaPhone">M-Pesa Phone Number</label>
+                    <input type="tel" id="mpesaPhone" required placeholder="e.g. 0712345678" pattern="^(07|01)\d{8}$">
+                    <button type="submit" class="btn-pay">Request STK Push</button>
+                </form>
+            </div>
+
+            <div id="stkLoading" style="display: none; text-align: center; padding: 20px 0;">
+                <i class="fas fa-spinner fa-spin" style="font-size: 3rem; color: var(--primary); margin-bottom: 15px;"></i>
+                <p>Sending STK Push to your phone...</p>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">Please keep your phone unlocked.</p>
+            </div>
+
+            <div id="stkSim" style="display: none;">
+                <div class="stk-pin-sim">
+                    <h4>M-PESA STK</h4>
+                    <p>Pay KSh <span id="stkPrice">2,500</span> to ThemeStore</p>
+                    <p>Enter 4-Digit M-Pesa PIN:</p>
+                    <input type="password" id="stkPin" class="stk-input" maxlength="4" placeholder="••••">
+                    <div style="display: flex; gap: 10px; margin-top: 15px;">
+                        <button class="btn" style="flex: 1; padding: 8px; background: #333; color: white;" onclick="cancelStk()">Cancel</button>
+                        <button class="btn" style="flex: 1; padding: 8px; background: #44b549; color: white;" onclick="submitPin()">Send PIN</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="stkSuccess" style="display: none; text-align: center; padding: 20px 0;">
+                <i class="fas fa-check-circle" style="font-size: 3.5rem; color: #44b549; margin-bottom: 15px;"></i>
+                <h4 style="font-family: 'Lora', serif; font-size: 1.4rem; color: var(--text-main); margin-bottom: 8px;">Payment Successful!</h4>
+                <p style="font-size: 0.95rem; color: var(--text-muted);">Your transaction was processed successfully. The template package has started downloading.</p>
+                <button class="btn btn-primary" style="margin-top: 15px; padding: 8px 25px;" onclick="closePurchaseModal()">Done</button>
+            </div>
+        </div>
+    </div>
+
     <footer>
         <p>&copy; 2026 ThemeStore. Built by Fred Otieno.</p>
     </footer>
 
     <script src="js/main.js"></script>
-</body>
-</html>
-
 
