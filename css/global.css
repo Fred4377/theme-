@@ -7,6 +7,16 @@
     --secondary: #FF007A; /* Vivid Magenta */
     --text-main: #000000; /* Pure Black for headers */
     --text-muted: #374151; /* Dark grey for body text */
+    --transition-spring: transform 0.6s linear(
+        0, 0.0121, 0.0478, 0.1057, 0.1834, 0.2774, 0.3837, 0.4975, 0.6139, 0.7274, 0.8327, 0.9251, 1.0006, 1.0565, 
+        1.0917, 1.1076, 1.1058, 1.0888, 1.0601, 1.0232, 0.9823, 0.9419, 0.9066, 0.8804, 0.8654, 0.8617, 0.8691, 
+        0.8859, 0.9103, 0.9404, 0.9734, 1.0063, 1.0366, 1.0621, 1.0812, 1.0924, 1.0959, 1.0927, 1.0827, 1.0681, 
+        1.0506, 1.0319, 1.0138, 0.9976, 0.9845, 0.9752, 0.9706, 0.9705, 0.9749, 0.9827, 0.9926, 1.0033, 1.0135, 
+        1.0223, 1.0289, 1.0326, 1.0337, 1.0317, 1.0271, 1.0205, 1.0129, 1.0051, 0.998, 0.992, 0.9877, 0.9856, 
+        0.9859, 0.9885, 0.9928, 0.9982, 1.0042, 1.0099, 1.0146, 1.0177, 1.0191, 1.0189, 1.0171, 1.0143, 1.0109, 
+        1.0074, 1.0041, 1.0014, 0.9995, 0.9984, 0.9981, 0.9985, 0.9994, 1.0006, 1.0019, 1.0029, 1.0036, 1.0039, 
+        1.0038, 1.0033, 1.0026, 1.0018, 1.001, 1.0003, 0.9998, 0.9995, 0.9994, 0.9995, 0.9997, 1
+    );
 }
 
 * {
@@ -236,7 +246,7 @@ header p {
     text-decoration: none;
     font-weight: 700;
     box-shadow: 2px 2px 0px #000000;
-    transition: all 0.25s ease-in-out;
+    transition: var(--transition-spring), background-color 0.25s ease-in-out, border-color 0.25s ease-in-out;
     display: inline-block;
 }
 
@@ -247,10 +257,14 @@ header p {
 }
 
 .btn-primary:hover {
-    transform: translate(-2px, -2px);
-    box-shadow: 4px 4px 0px #000000;
+    transform: translate(-4px, -4px) scale(1.03);
+    box-shadow: 6px 6px 0px #000000;
     background: var(--secondary);
     color: white !important;
+}
+.btn-primary:active {
+    transform: translate(-1px, -1px) scale(0.98);
+    box-shadow: 2px 2px 0px #000000;
 }
 
 /* Templates Grid */
@@ -284,13 +298,13 @@ section {
     overflow: hidden;
     border: 2px solid #000000;
     box-shadow: 4px 4px 0px #000000;
-    transition: transform 0.25s ease-in-out, box-shadow 0.25s ease-in-out, border-color 0.25s ease-in-out;
+    transition: var(--transition-spring), border-color 0.25s ease-in-out;
 }
 
 .card:hover {
-    transform: translateY(-8px) scale(1.025);
+    transform: translateY(-12px) scale(1.03);
     border-color: var(--primary);
-    box-shadow: 8px 12px 0px #000000;
+    box-shadow: 8px 14px 0px #000000;
 }
 
 .card-img {
@@ -517,17 +531,13 @@ footer {
     cursor: pointer;
     box-shadow: 2px 2px 0px #000000;
     font-family: inherit;
-    transition: all 0.25s ease-in-out;
+    transition: var(--transition-spring), background-color 0.25s ease-in-out;
 }
 
 .btn-pay:hover {
     background: #399c3e;
-    transform: translate(-1px, -1px);
-    box-shadow: 3px 3px 0px #000000;
-}
-
-.btn-pay:hover {
-    background: #399c3e;
+    transform: translate(-3px, -3px) scale(1.03);
+    box-shadow: 4px 4px 0px #000000;
 }
 
 /* STK Pin Prompt Sim */
@@ -575,4 +585,11 @@ footer {
 .dev-banner a {
     color: #c05621;
     font-weight: 700;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .btn, .btn-primary, .card, .btn-pay {
+        transition: none !important;
+        transform: none !important;
+    }
 }
